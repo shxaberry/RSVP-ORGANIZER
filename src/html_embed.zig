@@ -1,0 +1,1 @@
+pub const index: []const u8 = @embedFile("../public/index.html");
