@@ -1,8 +1,3 @@
-/* =====================================================
-   RSVP MANAGER — STYLESHEET
-   Palette: Black · White · Yellow
-   ===================================================== */
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
@@ -79,7 +74,7 @@ body::after {
   z-index: 0;
 }
 
-/* ── SCREEN / PAGE LAYOUT ─────────────────────────── */
+/* SCREEN / PAGE LAYOUT */
 .page {
   position: relative;
   z-index: 10;
@@ -122,7 +117,7 @@ body::after {
   color: var(--yellow);
 }
 
-/* ── AUTH CARD ────────────────────────────────────── */
+/* AUTH CARD */
 .auth-card {
   width: 100%;
   max-width: 440px;
