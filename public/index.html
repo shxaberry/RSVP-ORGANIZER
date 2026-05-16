@@ -8,16 +8,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css" />
-  <style>
-    /* additional helper classes for activity table */
-    .success { color: var(--success); }
-    .error { color: var(--error); }
-    .warning { color: var(--warning); }
-    .mono { font-family: 'Share Tech Mono', monospace; }
-    .muted { color: var(--text-muted); }
-    .small { font-size: 12px; }
-    .gold { color: var(--gold); }
-  </style>
 </head>
 <body>
 
@@ -69,7 +59,9 @@
       <div class="field-wrap">
         <input type="password" id="li-pass" placeholder="••••••••" autocomplete="current-password" />
         <button class="eye-btn" type="button" aria-label="Toggle password visibility" onclick="toggleEye('li-pass', this)">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+          </svg>
         </button>
       </div>
       <div class="field-error" id="li-pass-err"></div>
@@ -111,7 +103,9 @@
       <div class="field-wrap">
         <input type="password" id="su-pass" placeholder="••••••••" autocomplete="new-password" />
         <button class="eye-btn" type="button" aria-label="Toggle password visibility" onclick="toggleEye('su-pass', this)">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+          </svg>
         </button>
       </div>
       <div class="field-error" id="su-pass-err"></div>
@@ -122,7 +116,9 @@
       <div class="field-wrap">
         <input type="password" id="su-pass2" placeholder="••••••••" autocomplete="new-password" />
         <button class="eye-btn" type="button" aria-label="Toggle confirm password visibility" onclick="toggleEye('su-pass2', this)">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+          </svg>
         </button>
       </div>
       <div class="field-error" id="su-pass2-err"></div>
@@ -140,48 +136,51 @@
   <div class="portal-card">
     <p class="card-subtitle">GUEST <span>PORTAL</span></p>
 
-    <!-- Loading -->
     <div id="portal-loading" class="portal-loading">
       <div class="spinner"></div>
       <p>LOADING YOUR INVITATION...</p>
     </div>
 
-    <!-- Error -->
     <div id="portal-error" class="portal-error-state">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="40" height="40"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="40" height="40">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
       <p id="portal-error-msg">Invalid RSVP link.</p>
     </div>
 
-    <!-- Invitation -->
     <div id="portal-invitation" class="portal-invitation">
-
       <div class="portal-event-card">
         <div class="portal-corner portal-corner-tl"></div>
         <div class="portal-corner portal-corner-br"></div>
-
         <div class="portal-invited-badge">YOU'RE INVITED</div>
         <h1 class="portal-event-name" id="portal-event-name">—</h1>
         <p class="portal-event-desc" id="portal-event-desc"></p>
-
         <div class="portal-details-grid">
           <div class="portal-detail-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+              <rect x="3" y="4" width="18" height="18" rx="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
             <div>
               <div class="portal-detail-label">DATE</div>
               <div class="portal-detail-value" id="portal-event-date">—</div>
             </div>
           </div>
           <div class="portal-detail-box" id="portal-location-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+              <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
             <div>
               <div class="portal-detail-label">LOCATION</div>
               <div class="portal-detail-value" id="portal-event-location">—</div>
             </div>
           </div>
         </div>
-
         <div class="portal-capacity-row" id="portal-capacity-row">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M2 20h20M4 20V10l8-8 8 8v10"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+            <path d="M2 20h20M4 20V10l8-8 8 8v10"/>
+          </svg>
           <span class="portal-detail-label">CAPACITY</span>
           <span class="portal-capacity-val" id="portal-event-capacity"></span>
         </div>
@@ -196,23 +195,29 @@
 
       <div class="portal-status-row">
         <button class="portal-status-btn" id="portal-btn-attending" type="button" onclick="portalSelect('attending')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
           ATTENDING
         </button>
         <button class="portal-status-btn" id="portal-btn-declined" type="button" onclick="portalSelect('declined')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
           DECLINED
         </button>
       </div>
 
-      <button class="btn-submit" id="portal-submit-btn" type="button" onclick="portalSubmit()" style="display:none"><span>CONFIRM RSVP</span></button>
+      <button class="btn-submit" id="portal-submit-btn" type="button" onclick="portalSubmit()" style="display:none">
+        <span>CONFIRM RSVP</span>
+      </button>
       <div id="portal-success" class="alert alert-success"></div>
     </div>
   </div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
-     APP LAYOUT (dashboard)
+     APP LAYOUT
 ════════════════════════════════════════════════ -->
 <div id="app-layout" class="app-layout">
 
@@ -234,37 +239,55 @@
 
     <nav>
       <div class="nav-item active" id="nav-overview" onclick="showSection('overview')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+          <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+          <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+        </svg>
         OVERVIEW
       </div>
       <div class="nav-item" id="nav-events" onclick="showSection('events')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+          <rect x="3" y="4" width="18" height="18" rx="2"/>
+          <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+        </svg>
         EVENTS
         <span class="nav-badge" id="nb-events">0</span>
       </div>
       <div class="nav-item" id="nav-rsvps" onclick="showSection('rsvps')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
         RSVPs
         <span class="nav-badge" id="nb-rsvps">0</span>
       </div>
       <div class="nav-item" id="nav-guests" onclick="showSection('guests')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+        </svg>
         GUESTS
       </div>
-      <!-- Admin only (visible dynamically) -->
       <div class="nav-item" id="nav-admin-users" onclick="showSection('admin-users')" style="display:none;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M17 3a4 4 0 0 1 0 7.75"/><path d="M21 21v-2a4 4 0 0 0-3-3.75"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          <path d="M17 3a4 4 0 0 1 0 7.75"/><path d="M21 21v-2a4 4 0 0 0-3-3.75"/>
+        </svg>
         MANAGE USERS
       </div>
 
       <div class="sidebar-section-label">ACCOUNT</div>
 
       <div class="nav-item" id="nav-profile" onclick="showSection('profile')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
         PROFILE
       </div>
       <div class="nav-item" id="nav-settings" onclick="showSection('settings')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+        </svg>
         SETTINGS
       </div>
     </nav>
@@ -277,7 +300,10 @@
           <div class="sidebar-user-role">EVENT MANAGER</div>
         </div>
         <button class="btn-signout" type="button" onclick="doLogout()" title="Sign Out">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+            <polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/>
+          </svg>
         </button>
       </div>
     </div>
@@ -293,15 +319,22 @@
       </div>
       <div class="topnav-spacer"></div>
       <div class="topnav-search">
-        <svg class="topnav-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <svg class="topnav-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
         <input type="search" id="global-search" placeholder="Search events, guests..." oninput="handleSearch(this.value)" aria-label="Global search" />
       </div>
       <button class="topnav-btn secondary" id="topnav-email-btn" type="button" onclick="emailAllPending()" style="display:none">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
         EMAIL PENDING
       </button>
       <button class="topnav-btn" id="topnav-action-btn" type="button" onclick="openAddModal()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14">
+          <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+        </svg>
         <span id="topnav-action-label">NEW EVENT</span>
       </button>
     </header>
@@ -314,7 +347,10 @@
           <div class="stat-card">
             <div class="stat-card-glow gold"></div>
             <div class="stat-card-icon gold">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                <rect x="3" y="4" width="18" height="18" rx="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
             </div>
             <div class="stat-card-value" id="stat-total-events">0</div>
             <div class="stat-card-label">TOTAL EVENTS</div>
@@ -322,7 +358,9 @@
           <div class="stat-card">
             <div class="stat-card-glow green"></div>
             <div class="stat-card-icon green">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="20 6 9 17 4 12"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
             </div>
             <div class="stat-card-value" id="stat-attending">0</div>
             <div class="stat-card-label">ATTENDING</div>
@@ -330,7 +368,10 @@
           <div class="stat-card">
             <div class="stat-card-glow red"></div>
             <div class="stat-card-icon red">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>
+              </svg>
             </div>
             <div class="stat-card-value" id="stat-declined">0</div>
             <div class="stat-card-label">DECLINED</div>
@@ -338,7 +379,9 @@
           <div class="stat-card">
             <div class="stat-card-glow blue"></div>
             <div class="stat-card-icon blue">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+              </svg>
             </div>
             <div class="stat-card-value" id="stat-pending">0</div>
             <div class="stat-card-label">AWAITING RESPONSE</div>
@@ -346,7 +389,10 @@
           <div class="stat-card">
             <div class="stat-card-glow orange"></div>
             <div class="stat-card-icon orange">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/>
+                <line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>
+              </svg>
             </div>
             <div class="stat-card-value" id="stat-waitlisted">0</div>
             <div class="stat-card-label">WAITLISTED</div>
@@ -369,9 +415,7 @@
             </div>
             <div class="data-table-wrap">
               <table>
-                <thead>
-                  <tr><th>GUEST</th><th>EVENT</th><th>STATUS</th></tr>
-                </thead>
+                <thead><tr><th>GUEST</th><th>EVENT</th><th>STATUS</th></tr></thead>
                 <tbody id="overview-rsvp-tbody"></tbody>
               </table>
             </div>
@@ -431,14 +475,8 @@
             <table>
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>GUEST NAME</th>
-                  <th>EMAIL</th>
-                  <th>EVENT</th>
-                  <th>STATUS</th>
-                  <th>PORTAL LINK</th>
-                  <th>DATE</th>
-                  <th>ACTIONS</th>
+                  <th>#</th><th>GUEST NAME</th><th>EMAIL</th><th>EVENT</th>
+                  <th>STATUS</th><th>PORTAL LINK</th><th>DATE</th><th>ACTIONS</th>
                 </tr>
               </thead>
               <tbody id="rsvps-tbody"></tbody>
@@ -460,9 +498,7 @@
             <div class="toolbar-spacer"></div>
           </div>
           <table>
-            <thead>
-              <tr><th>#</th><th>FULL NAME</th><th>EMAIL</th><th>RSVP COUNT</th></tr>
-            </thead>
+            <thead><tr><th>#</th><th>FULL NAME</th><th>EMAIL</th><th>RSVP COUNT</th></tr></thead>
             <tbody id="guests-tbody"></tbody>
           </table>
         </div>
@@ -530,7 +566,7 @@
         </div>
       </div>
 
-      <!-- ── ADMIN: MANAGE USERS (with user list + activity table) ── -->
+      <!-- ── ADMIN: MANAGE USERS ── -->
       <div class="section-page" id="page-admin-users">
         <div class="section-header">
           <h2>MANAGE USERS</h2>
@@ -544,26 +580,25 @@
           </div>
           <div class="table-scroll">
             <table>
-              <thead>
-                <tr><th>ID</th><th>FULL NAME</th><th>EMAIL</th><th>ROLE</th><th>JOINED</th><th>ACTIONS</th></tr>
-              </thead>
+              <thead><tr><th>ID</th><th>FULL NAME</th><th>EMAIL</th><th>ROLE</th><th>JOINED</th><th>ACTIONS</th></tr></thead>
               <tbody id="admin-users-tbody"></tbody>
             </table>
           </div>
         </div>
 
-        <!-- USER ACTIVITY STATISTICS -->
-        <div class="section-header" style="margin-top: 28px;">
+        <div class="section-header" style="margin-top:28px">
           <h2>USER ACTIVITY STATISTICS</h2>
           <div class="section-header-line"></div>
-          <span class="section-tag">EVENTS & RSVPs</span>
+          <span class="section-tag">EVENTS &amp; RSVPs</span>
         </div>
         <div class="data-table-wrap">
           <div class="data-table-toolbar">
             <span class="data-table-toolbar-title">PER‑USER SUMMARY</span>
             <div class="toolbar-spacer"></div>
             <button class="act-btn" type="button" onclick="refreshUserActivity()">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="12" height="12"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="12" height="12">
+                <path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+              </svg>
               REFRESH
             </button>
           </div>
@@ -571,14 +606,8 @@
             <table>
               <thead>
                 <tr>
-                  <th>USER</th>
-                  <th>EMAIL</th>
-                  <th>EVENTS CREATED</th>
-                  <th>TOTAL RSVPs</th>
-                  <th>ATTENDING</th>
-                  <th>DECLINED</th>
-                  <th>PENDING</th>
-                  <th>WAITLISTED</th>
+                  <th>USER</th><th>EMAIL</th><th>EVENTS CREATED</th><th>TOTAL RSVPs</th>
+                  <th>ATTENDING</th><th>DECLINED</th><th>PENDING</th><th>WAITLISTED</th>
                 </tr>
               </thead>
               <tbody id="admin-activity-tbody">
@@ -596,12 +625,14 @@
 <div class="footer" id="app-footer">Powered by Zig &copy; 2026</div>
 
 <!-- ═══════════════════════════════════════════════
-     MODALS (unchanged)
+     MODALS
 ════════════════════════════════════════════════ -->
 <div class="modal-backdrop" id="modal-add-event">
   <div class="modal">
     <button class="modal-close" type="button" onclick="closeModal('modal-add-event')" aria-label="Close modal">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
     </button>
     <div class="modal-title">NEW EVENT</div>
     <div class="modal-subtitle">Add a new event to the system</div>
@@ -635,7 +666,9 @@
 <div class="modal-backdrop" id="modal-add-rsvp">
   <div class="modal">
     <button class="modal-close" type="button" onclick="closeModal('modal-add-rsvp')" aria-label="Close modal">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
     </button>
     <div class="modal-title">ADD RSVP</div>
     <div class="modal-subtitle">Record a guest RSVP response</div>
@@ -651,9 +684,7 @@
     <div class="field">
       <label class="field-label" for="rsvp-event-select">EVENT</label>
       <div class="field-wrap">
-        <select id="rsvp-event-select">
-          <option value="">— Select Event —</option>
-        </select>
+        <select id="rsvp-event-select"><option value="">— Select Event —</option></select>
       </div>
     </div>
     <div class="field">
@@ -685,753 +716,17 @@
 </div>
 
 <!-- ═══════════════════════════════════════════════
-     JAVASCRIPT (all logic integrated)
+     SCRIPTS — load order matters
 ════════════════════════════════════════════════ -->
-<script>
-// ══ STATE ══════════════════════════════════════════════════
-let currentUser         = null;
-let currentSection      = 'overview';
-let allEvents           = [];
-let allRSVPs            = [];
-let deleteTarget        = null;
-let portalToken         = null;
-let portalSelectedStatus= null;
+<script src="/js/state.js"></script>
+<script src="/js/helpers.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/dashboard.js"></script>
+<script src="/js/events.js"></script>
+<script src="/js/rsvps.js"></script>
+<script src="/js/admin.js"></script>
+<script src="/js/portal.js"></script>
+<script src="/js/boot.js"></script>
 
-// ══ TOAST ══════════════════════════════════════════════════
-function toast(msg, type = 'success') {
-  const t = document.createElement('div');
-  t.className = `toast toast-${type}`;
-  t.textContent = msg;
-  document.body.appendChild(t);
-  setTimeout(() => t.remove(), 3200);
-}
-
-// ══ AUTH SCREENS ═══════════════════════════════════════════
-function goTo(id) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById(id)?.classList.add('active');
-}
-
-function toggleEye(id, btn) {
-  const inp = document.getElementById(id);
-  inp.type  = inp.type === 'text' ? 'password' : 'text';
-  btn.style.color = inp.type === 'text' ? 'var(--gold)' : '';
-}
-
-function setFieldError(inputId, errId, msg) {
-  const inp = document.getElementById(inputId);
-  const err = document.getElementById(errId);
-  if (msg) { inp?.classList.add('is-error'); if (err) { err.textContent = msg; err.classList.add('show'); } }
-  else      { inp?.classList.remove('is-error'); err?.classList.remove('show'); }
-}
-
-function showAlert(id, msg, type = 'error') {
-  const el = document.getElementById(id);
-  if (!el) return;
-  el.textContent = msg;
-  el.className = `alert show alert-${type}`;
-}
-
-function hideAlert(id) { document.getElementById(id)?.classList.remove('show'); }
-
-// ── Login attempts tracker ──
-let loginAttempts = 0;
-function updateDots(n) {
-  document.getElementById('li-attempts').classList.add('show');
-  ['li-d1','li-d2','li-d3'].forEach((id, i) =>
-    document.getElementById(id).classList.toggle('used', i >= (3 - n))
-  );
-}
-function resetDots() {
-  loginAttempts = 0;
-  document.getElementById('li-attempts').classList.remove('show');
-}
-
-async function doLogin() {
-  const email = document.getElementById('li-email').value.trim();
-  const pass  = document.getElementById('li-pass').value;
-  hideAlert('li-alert');
-  let ok = true;
-  if (!email) { setFieldError('li-email', 'li-email-err', 'Email is required.');    ok = false; }
-  if (!pass)  { setFieldError('li-pass',  'li-pass-err',  'Password is required.'); ok = false; }
-  if (!ok) return;
-  try {
-    const res  = await fetch('/api/auth/login', { method:'POST', headers:{'Content-Type':'application/json'}, credentials:'include', body: JSON.stringify({ email, password: pass }) });
-    const data = await res.json();
-    if (data.success) { resetDots(); enterDashboard(data.user); }
-    else {
-      loginAttempts++;
-      updateDots(loginAttempts);
-      const left = 3 - loginAttempts;
-      showAlert('li-alert', `${data.message}${left > 0 ? ` (${left} attempt${left === 1 ? '' : 's'} left)` : ''}`);
-    }
-  } catch { showAlert('li-alert', 'Network error. Is the server running?'); }
-}
-
-async function doRegister() {
-  const fname = document.getElementById('su-fname').value.trim();
-  const email = document.getElementById('su-email').value.trim();
-  const pass  = document.getElementById('su-pass').value;
-  const pass2 = document.getElementById('su-pass2').value;
-  [['su-fname','su-fname-err'],['su-email','su-email-err'],['su-pass','su-pass-err'],['su-pass2','su-pass2-err']]
-    .forEach(([i, e]) => setFieldError(i, e, ''));
-  hideAlert('su-alert');
-  let ok = true;
-  if (!fname) { setFieldError('su-fname', 'su-fname-err', 'Full name is required.'); ok = false; }
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { setFieldError('su-email', 'su-email-err', 'Enter a valid email.'); ok = false; }
-  if (pass.length < 6) { setFieldError('su-pass', 'su-pass-err', 'Min 6 characters.'); ok = false; }
-  if (pass !== pass2)  { setFieldError('su-pass2', 'su-pass2-err', 'Passwords do not match.'); ok = false; }
-  if (!ok) return;
-  try {
-    const res  = await fetch('/api/auth/register', { method:'POST', headers:{'Content-Type':'application/json'}, credentials:'include', body: JSON.stringify({ full_name: fname, email, password: pass, confirm_password: pass2 }) });
-    const data = await res.json();
-    if (data.success) {
-      goTo('screen-login');
-      showAlert('li-success', 'Account created! Please log in.', 'success');
-    } else if (data.errors) {
-      const map = { email:['su-email','su-email-err'], full_name:['su-fname','su-fname-err'], password:['su-pass','su-pass-err'], confirm_password:['su-pass2','su-pass2-err'] };
-      data.errors.forEach(e => { if (map[e.field]) setFieldError(...map[e.field], e.message); else showAlert('su-alert', e.message); });
-    } else showAlert('su-alert', data.message || 'Registration failed.');
-  } catch { showAlert('su-alert', 'Network error.'); }
-}
-
-async function doLogout() {
-  try { await fetch('/api/auth/logout', { method:'POST', credentials:'include' }); } catch {}
-  currentUser = null; allEvents = []; allRSVPs = [];
-  document.getElementById('app-layout').classList.remove('active');
-  document.getElementById('auth-topbar').style.display = '';
-  document.getElementById('app-footer').style.display  = '';
-  goTo('screen-login');
-}
-
-// ══ DASHBOARD ENTRY ═══════════════════════════════════════
-function enterDashboard(user) {
-  currentUser = user;
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById('auth-topbar').style.display = 'none';
-  document.getElementById('app-footer').style.display  = 'none';
-  document.getElementById('app-layout').classList.add('active');
-  const initials = user.full_name.trim().split(/\s+/).map(w => w[0].toUpperCase()).slice(0, 2).join('');
-  document.getElementById('sb-avatar').textContent       = initials;
-  document.getElementById('sb-name').textContent         = user.full_name;
-  document.getElementById('prof-avatar').textContent     = initials;
-  document.getElementById('prof-name').textContent       = user.full_name;
-  document.getElementById('prof-email').textContent      = user.email;
-  document.getElementById('prof-full-name').textContent  = user.full_name;
-  document.getElementById('prof-email-val').textContent  = user.email;
-  document.getElementById('prof-id').textContent         = '#' + (user.id || '—');
-  const since = user.created_at ? new Date(user.created_at * 1000).toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' }) : '—';
-  document.getElementById('prof-since').textContent  = since;
-  document.getElementById('prof-joined').textContent = 'Joined ' + since;
-
-  // Admin UI: show/hide nav item and role label
-  const isAdmin = user.role === 1;
-  const adminNav = document.getElementById('nav-admin-users');
-  if (adminNav) adminNav.style.display = isAdmin ? 'flex' : 'none';
-  const sidebarRoleSpan = document.querySelector('.sidebar-user-role');
-  if (sidebarRoleSpan) sidebarRoleSpan.textContent = isAdmin ? 'ADMINISTRATOR' : 'EVENT MANAGER';
-  const profRoleSpan = document.getElementById('prof-role');
-  if (profRoleSpan) profRoleSpan.textContent = isAdmin ? 'ADMINISTRATOR' : 'EVENT MANAGER';
-
-  loadAll();
-}
-
-// ══ DATA LOADING ══════════════════════════════════════════
-async function loadAll() {
-  await Promise.all([loadEvents(), loadRSVPs()]);
-  refreshStats();
-  showSection(currentSection);
-}
-
-async function loadEvents() {
-  try {
-    const res = await fetch('/api/events', { credentials:'include' });
-    const d   = await res.json();
-    if (d.success) allEvents = d.events || [];
-  } catch { toast('Failed to load events.', 'error'); }
-}
-
-async function loadRSVPs() {
-  try {
-    const res = await fetch('/api/rsvps', { credentials:'include' });
-    const d   = await res.json();
-    if (d.success) allRSVPs = d.rsvps || [];
-  } catch { toast('Failed to load RSVPs.', 'error'); }
-}
-
-// ══ NAVIGATION ════════════════════════════════════════════
-const sectionMeta = {
-  overview:     { title:'OVERVIEW', sub:'/ Dashboard',   action:'NEW EVENT', email:false, admin:false },
-  events:       { title:'EVENTS',   sub:'/ All Events',  action:'NEW EVENT', email:false, admin:false },
-  rsvps:        { title:'RSVPs',    sub:'/ Responses',   action:'ADD RSVP',  email:true,  admin:false },
-  guests:       { title:'GUESTS',   sub:'/ Guest List',  action:'ADD RSVP',  email:false, admin:false },
-  profile:      { title:'PROFILE',  sub:'/ Account',     action:null,        email:false, admin:false },
-  settings:     { title:'SETTINGS', sub:'/ System Info', action:null,        email:false, admin:false },
-  'admin-users':{ title:'ADMIN',    sub:'/ Manage Users',action:null,        email:false, admin:true  }
-};
-
-function showSection(name) {
-  const meta = sectionMeta[name];
-  if (meta?.admin && (!currentUser || currentUser.role !== 1)) {
-    showSection('overview');
-    return;
-  }
-
-  currentSection = name;
-  document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
-  document.getElementById('nav-' + name)?.classList.add('active');
-  document.querySelectorAll('.section-page').forEach(el => el.classList.remove('active'));
-  document.getElementById('page-' + name)?.classList.add('active');
-  document.getElementById('topnav-title').textContent = meta.title;
-  document.getElementById('topnav-sub').textContent   = meta.sub;
-  const actionBtn = document.getElementById('topnav-action-btn');
-  if (meta.action) { actionBtn.style.display = ''; document.getElementById('topnav-action-label').textContent = meta.action; }
-  else { actionBtn.style.display = 'none'; }
-  document.getElementById('topnav-email-btn').style.display = meta.email ? '' : 'none';
-  
-  if      (name === 'overview') renderOverview();
-  else if (name === 'events')   renderEvents();
-  else if (name === 'rsvps')    renderRSVPs();
-  else if (name === 'guests')   renderGuests();
-  else if (name === 'admin-users') {
-    loadAdminUsers();
-    loadUserActivity();
-  }
-}
-
-function openAddModal() {
-  const meta = sectionMeta[currentSection];
-  if (!meta?.action) return;
-  if (meta.action === 'ADD RSVP') { populateEventSelect(); hideAlert('rsvp-modal-alert'); openModal('modal-add-rsvp'); }
-  else { openModal('modal-add-event'); }
-}
-
-function openModal(id)  { document.getElementById(id)?.classList.add('open'); }
-function closeModal(id) { document.getElementById(id)?.classList.remove('open'); }
-document.addEventListener('click', e => { if (e.target.classList.contains('modal-backdrop')) e.target.classList.remove('open'); });
-
-// ══ STATS ═════════════════════════════════════════════════
-function refreshStats() {
-  const attending  = allRSVPs.filter(r => r.status === 'attending' && !r.waitlisted).length;
-  const declined   = allRSVPs.filter(r => r.status === 'declined').length;
-  const pending    = allRSVPs.filter(r => r.status === 'pending').length;
-  const waitlisted = allRSVPs.filter(r => r.waitlisted == 1).length;
-  const total      = allRSVPs.length;
-  document.getElementById('stat-total-events').textContent = allEvents.length;
-  document.getElementById('stat-attending').textContent    = attending;
-  document.getElementById('stat-declined').textContent     = declined;
-  document.getElementById('stat-pending').textContent      = pending;
-  document.getElementById('stat-waitlisted').textContent   = waitlisted;
-  document.getElementById('nb-events').textContent = allEvents.length;
-  document.getElementById('nb-rsvps').textContent  = total;
-  const rate = total > 0 ? Math.round(((attending + declined) / total) * 100) : 0;
-  document.getElementById('rate-pct').textContent        = rate + '%';
-  document.getElementById('rate-bar').style.width        = rate + '%';
-  document.getElementById('rate-attending').textContent  = attending;
-  document.getElementById('rate-declined').textContent   = declined;
-  document.getElementById('rate-pending').textContent    = pending;
-  document.getElementById('rate-waitlisted').textContent = waitlisted;
-  document.getElementById('prof-events').textContent     = allEvents.length;
-  document.getElementById('prof-rsvps').textContent      = total;
-  document.getElementById('prof-attending').textContent  = attending;
-  document.getElementById('prof-waitlisted').textContent = waitlisted;
-}
-
-// ══ EVENTS (unchanged, but required) ═══════════════════════
-async function addEvent() { /* same as original */ 
-  const name     = document.getElementById('ev-name').value.trim();
-  const date     = document.getElementById('ev-date').value;
-  const location = document.getElementById('ev-location').value.trim();
-  const capacity = parseInt(document.getElementById('ev-capacity').value) || 0;
-  const desc     = document.getElementById('ev-desc').value.trim();
-  if (!name || !date) { toast('Event name and date are required.', 'error'); return; }
-  try {
-    const res = await fetch('/api/events', { method:'POST', headers:{'Content-Type':'application/json'}, credentials:'include', body: JSON.stringify({ name, date, location, description: desc, capacity }) });
-    const d   = await res.json();
-    if (d.success) {
-      ['ev-name','ev-date','ev-location','ev-capacity','ev-desc'].forEach(id => document.getElementById(id).value = '');
-      closeModal('modal-add-event');
-      await loadAll();
-      toast('Event created!', 'success');
-    } else toast(d.message || 'Failed to create event.', 'error');
-  } catch { toast('Network error.', 'error'); }
-}
-
-function deleteEvent(id) {
-  const ev = allEvents.find(e => e.id == id);
-  deleteTarget = { type:'event', id };
-  document.getElementById('confirm-msg').textContent = `Delete "${ev?.name}"? All RSVPs will also be removed.`;
-  openModal('modal-confirm');
-}
-
-function renderEvents() {
-  const grid = document.getElementById('events-grid');
-  document.getElementById('events-count-tag').textContent = allEvents.length + ' EVENTS';
-  if (!allEvents.length) {
-    grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-      <p>No events yet. Click NEW EVENT to get started.</p>
-    </div>`;
-    return;
-  }
-  const accents = ['accent-gold','accent-blue','accent-green'];
-  grid.innerHTML = '';
-  allEvents.forEach(ev => {
-    const evRsvps = allRSVPs.filter(r => r.event_id == ev.id);
-    const card    = document.createElement('div');
-    card.className = 'event-card';
-    card.innerHTML = `
-      <div class="event-card-accent ${accents[ev.id % accents.length]}"></div>
-      <div class="event-card-header">
-        <div class="event-card-name">${ev.name}</div>
-        ${badgeHTML(ev.status || 'upcoming')}
-      </div>
-      <div class="event-card-date">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        ${fmtDate(ev.date)}
-        ${ev.location ? `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12" style="margin-left:8px"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> ${ev.location}` : ''}
-      </div>
-      ${ev.description ? `<div class="event-card-desc">${ev.description}</div>` : ''}
-      <div class="event-card-stats">
-        <div class="event-stat"><div class="event-stat-val">${evRsvps.length}</div><div class="event-stat-lbl">RSVPs</div></div>
-        <div class="event-stat"><div class="event-stat-val green">${evRsvps.filter(r => r.status === 'attending' && !r.waitlisted).length}</div><div class="event-stat-lbl">GOING</div></div>
-        <div class="event-stat"><div class="event-stat-val gold">${evRsvps.filter(r => r.waitlisted == 1).length}</div><div class="event-stat-lbl">WAITLIST</div></div>
-      </div>
-      <div class="event-card-actions">
-        ${ev.capacity > 0 ? `<span class="capacity-tag">Cap: ${ev.capacity}</span>` : ''}
-        <button class="act-btn" type="button" onclick="event.stopPropagation(); emailAllForEvent(${ev.id})">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          EMAIL PENDING
-        </button>
-        <button class="act-btn danger" type="button" onclick="event.stopPropagation(); deleteEvent(${ev.id})">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg>
-          DELETE
-        </button>
-      </div>`;
-    grid.appendChild(card);
-  });
-}
-
-// ══ RSVPs (unchanged) ══════════════════════════════════════
-function populateEventSelect() {
-  const sel = document.getElementById('rsvp-event-select');
-  sel.innerHTML = '<option value="">— Select Event —</option>';
-  allEvents.forEach(ev => {
-    const o = document.createElement('option');
-    o.value = ev.id; o.textContent = ev.name;
-    sel.appendChild(o);
-  });
-}
-
-async function addRSVP() {
-  const guestName = document.getElementById('rsvp-guest-name').value.trim();
-  const email     = document.getElementById('rsvp-guest-email').value.trim();
-  const eventId   = parseInt(document.getElementById('rsvp-event-select').value);
-  const status    = document.getElementById('rsvp-status-select').value;
-  hideAlert('rsvp-modal-alert');
-  if (!guestName || !email || !eventId) { showAlert('rsvp-modal-alert', 'All fields are required.'); return; }
-  try {
-    const res = await fetch('/api/rsvps', { method:'POST', headers:{'Content-Type':'application/json'}, credentials:'include', body: JSON.stringify({ guest_name: guestName, email, event_id: eventId, status }) });
-    const d   = await res.json();
-    if (d.success) {
-      ['rsvp-guest-name','rsvp-guest-email'].forEach(id => document.getElementById(id).value = '');
-      closeModal('modal-add-rsvp');
-      await loadAll();
-      toast(d.waitlisted ? `Added to waitlist! Token: ${d.token}` : `RSVP saved! Portal: /rsvp?token=${d.token}`, d.waitlisted ? 'info' : 'success');
-    } else showAlert('rsvp-modal-alert', d.message || 'Failed to save RSVP.');
-  } catch { showAlert('rsvp-modal-alert', 'Network error.'); }
-}
-
-async function updateRSVPStatus(id, status) {
-  try {
-    const res = await fetch(`/api/rsvps/${id}`, { method:'PATCH', headers:{'Content-Type':'application/json'}, credentials:'include', body: JSON.stringify({ status }) });
-    const d   = await res.json();
-    if (d.success) { await loadAll(); renderRSVPs(); toast('RSVP updated.', 'success'); }
-    else toast(d.message || 'Failed.', 'error');
-  } catch { toast('Network error.', 'error'); }
-}
-
-function deleteRSVP(id) {
-  const r = allRSVPs.find(r => r.id == id);
-  deleteTarget = { type:'rsvp', id };
-  document.getElementById('confirm-msg').textContent = `Remove RSVP from "${r?.guest_name}"?`;
-  openModal('modal-confirm');
-}
-
-function copyPortalLink(token) {
-  const url = `${location.origin}/rsvp?token=${token}`;
-  navigator.clipboard?.writeText(url).then(() => toast('Portal link copied!', 'success')).catch(() => toast(url, 'info'));
-}
-
-function filterRSVPs(val) { renderRSVPs(val); }
-
-function renderRSVPs(filterStatus) {
-  filterStatus = filterStatus ?? document.getElementById('rsvp-filter')?.value ?? 'all';
-  const filtered = filterStatus === 'all'       ? allRSVPs
-    : filterStatus === 'waitlisted'             ? allRSVPs.filter(r => r.waitlisted == 1)
-    : allRSVPs.filter(r => r.status === filterStatus && !r.waitlisted);
-  const tbody = document.getElementById('rsvps-tbody');
-  document.getElementById('rsvp-count-label').textContent = filtered.length + ' records';
-  if (!filtered.length) { tbody.innerHTML = '<tr><td colspan="8" class="empty-cell">No RSVP records found.</td></tr>'; return; }
-  tbody.innerHTML = filtered.map((r, i) => {
-    const ev = allEvents.find(e => e.id == r.event_id);
-    return `<tr>
-      <td class="mono muted">${String(i + 1).padStart(2, '0')}</td>
-      <td><strong>${r.guest_name}</strong></td>
-      <td class="muted small">${r.email}</td>
-      <td class="muted small">${ev?.name || '—'}</td>
-      <td>${r.waitlisted == 1 ? badgeHTML('waitlisted') : badgeHTML(r.status)}</td>
-      <td>
-        <button class="act-btn" type="button" onclick="copyPortalLink('${r.token}')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-          COPY LINK
-        </button>
-      </td>
-      <td class="mono muted small">${fmtDate2(r.created_at)}</td>
-      <td>
-        ${r.status !== 'attending' && !r.waitlisted ? `<button class="act-btn success" type="button" onclick="updateRSVPStatus(${r.id},'attending')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="12" height="12"><polyline points="20 6 9 17 4 12"/></svg></button>` : ''}
-        ${r.status !== 'declined'                   ? `<button class="act-btn danger"  type="button" onclick="updateRSVPStatus(${r.id},'declined')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>` : ''}
-        <button class="act-btn danger" type="button" onclick="deleteRSVP(${r.id})">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/></svg>
-        </button>
-      </td>
-    </tr>`;
-  }).join('');
-}
-
-function renderGuests() {
-  const tbody = document.getElementById('guests-tbody');
-  const map   = {};
-  allRSVPs.forEach(r => {
-    if (!map[r.email]) map[r.email] = { name: r.guest_name, email: r.email, count: 0 };
-    map[r.email].count++;
-  });
-  const guests = Object.values(map);
-  document.getElementById('guests-count-tag').textContent = guests.length + ' GUESTS';
-  if (!guests.length) { tbody.innerHTML = '<tr><td colspan="4" class="empty-cell">No guests yet. Add RSVPs to see guests here.</td></tr>'; return; }
-  tbody.innerHTML = guests.map((g, i) => `
-    <tr>
-      <td class="mono muted">${String(i + 1).padStart(2, '0')}</td>
-      <td><strong>${g.name}</strong></td>
-      <td class="muted small">${g.email}</td>
-      <td class="gold mono">${g.count}</td>
-    </tr>`).join('');
-}
-
-function renderOverview() {
-  const el       = document.getElementById('overview-events-list');
-  const upcoming = allEvents.filter(e => e.status === 'upcoming').slice(0, 3);
-  if (!upcoming.length) {
-    el.innerHTML = `<div class="empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><p>No upcoming events.</p></div>`;
-  } else {
-    el.innerHTML = upcoming.map(ev => {
-      const evR = allRSVPs.filter(r => r.event_id == ev.id);
-      return `<div class="event-card" onclick="showSection('events')">
-        <div class="event-card-accent accent-gold"></div>
-        <div class="event-card-header"><div class="event-card-name">${ev.name}</div>${badgeHTML('upcoming')}</div>
-        <div class="event-card-date">${fmtDate(ev.date)}${ev.location ? ' · ' + ev.location : ''}</div>
-        <div class="event-card-stats">
-          <div class="event-stat"><div class="event-stat-val">${evR.length}</div><div class="event-stat-lbl">RSVPs</div></div>
-          <div class="event-stat"><div class="event-stat-val green">${evR.filter(r => r.status === 'attending' && !r.waitlisted).length}</div><div class="event-stat-lbl">GOING</div></div>
-          <div class="event-stat"><div class="event-stat-val gold">${evR.filter(r => r.status === 'pending').length}</div><div class="event-stat-lbl">PENDING</div></div>
-        </div>
-      </div>`;
-    }).join('');
-  }
-  const tbody  = document.getElementById('overview-rsvp-tbody');
-  const recent = [...allRSVPs].sort((a, b) => b.id - a.id).slice(0, 5);
-  if (!recent.length) { tbody.innerHTML = '<tr><td colspan="3" class="empty-cell">No RSVPs yet.</td></tr>'; return; }
-  tbody.innerHTML = recent.map(r => {
-    const ev = allEvents.find(e => e.id == r.event_id);
-    return `<tr><td>${r.guest_name}</td><td class="muted small">${ev?.name || '—'}</td><td>${r.waitlisted == 1 ? badgeHTML('waitlisted') : badgeHTML(r.status)}</td></tr>`;
-  }).join('');
-}
-
-// ══ EMAIL ALL (unchanged) ══════════════════════════════════
-async function emailAllPending() {
-  const ids = [...new Set(allRSVPs.filter(r => r.status === 'pending').map(r => r.event_id))];
-  if (!ids.length) { toast('No pending RSVPs found.', 'info'); return; }
-  for (const eid of ids) await emailAllForEvent(eid, true);
-  toast('Email reminders queued for all pending guests.', 'success');
-}
-
-async function emailAllForEvent(eventId, silent = false) {
-  try {
-    const res = await fetch(`/api/events/${eventId}/email-all`, { method:'POST', credentials:'include' });
-    const d   = await res.json();
-    if (!silent) toast(d.message || 'Done.', d.success ? 'success' : 'error');
-    return d;
-  } catch { if (!silent) toast('Network error.', 'error'); }
-}
-
-// ══ CONFIRM DELETE ════════════════════════════════════════
-async function confirmDelete() {
-  if (!deleteTarget) return;
-  closeModal('modal-confirm');
-  if (deleteTarget.type === 'event') {
-    try {
-      const res = await fetch(`/api/events/${deleteTarget.id}`, { method:'DELETE', credentials:'include' });
-      const d   = await res.json();
-      if (d.success) { await loadAll(); renderEvents(); toast('Event deleted.', 'success'); }
-      else toast(d.message || 'Failed.', 'error');
-    } catch { toast('Network error.', 'error'); }
-  } else if (deleteTarget.type === 'rsvp') {
-    try {
-      const res = await fetch(`/api/rsvps/${deleteTarget.id}`, { method:'DELETE', credentials:'include' });
-      const d   = await res.json();
-      if (d.success) { await loadAll(); renderRSVPs(); toast('RSVP deleted.', 'success'); }
-      else toast(d.message || 'Failed.', 'error');
-    } catch { toast('Network error.', 'error'); }
-  }
-  deleteTarget = null;
-}
-
-// ══ GUEST PORTAL (unchanged) ═══════════════════════════════
-function portalSelect(status) {
-  portalSelectedStatus = status;
-  document.getElementById('portal-btn-attending').className = 'portal-status-btn' + (status === 'attending' ? ' sel-attending' : '');
-  document.getElementById('portal-btn-declined').className  = 'portal-status-btn' + (status === 'declined'  ? ' sel-declined'  : '');
-  document.getElementById('portal-submit-btn').style.display = '';
-}
-
-async function portalSubmit() {
-  if (!portalSelectedStatus || !portalToken) return;
-  const btn = document.getElementById('portal-submit-btn');
-  btn.classList.add('loading');
-  try {
-    const res = await fetch('/rsvp', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ token: portalToken, status: portalSelectedStatus }) });
-    const d   = await res.json();
-    if (d.success) {
-      document.getElementById('portal-submit-btn').style.display     = 'none';
-      document.getElementById('portal-btn-attending').style.display  = 'none';
-      document.getElementById('portal-btn-declined').style.display   = 'none';
-      const msg = d.waitlisted ? 'The event is full — you have been added to the waitlist.' : `Your RSVP is confirmed as: ${portalSelectedStatus.toUpperCase()}`;
-      document.getElementById('portal-success').textContent = msg;
-      document.getElementById('portal-success').className   = d.waitlisted ? 'alert alert-info show' : 'alert alert-success show';
-      document.getElementById('portal-alert').classList.remove('show');
-    } else {
-      document.getElementById('portal-alert').textContent = d.message || 'Error updating RSVP.';
-      document.getElementById('portal-alert').className   = 'alert alert-error show';
-    }
-  } catch {
-    document.getElementById('portal-alert').textContent = 'Network error.';
-    document.getElementById('portal-alert').className   = 'alert alert-error show';
-  }
-  btn.classList.remove('loading');
-}
-
-// ══ SEARCH ════════════════════════════════════════════════
-function handleSearch(q) {
-  if (!q) { showSection(currentSection); return; }
-  q = q.toLowerCase();
-  const matchRsvps = allRSVPs.filter(r => r.guest_name.toLowerCase().includes(q) || r.email.toLowerCase().includes(q));
-  showSection('rsvps');
-  if (matchRsvps.length) {
-    const tbody = document.getElementById('rsvps-tbody');
-    tbody.innerHTML = matchRsvps.map((r, i) => {
-      const ev = allEvents.find(e => e.id == r.event_id);
-      return `<tr>
-        <td class="mono muted">${String(i + 1).padStart(2, '0')}</td>
-        <td><strong>${r.guest_name}</strong></td>
-        <td class="muted small">${r.email}</td>
-        <td class="muted small">${ev?.name || '—'}</td>
-        <td>${r.waitlisted == 1 ? badgeHTML('waitlisted') : badgeHTML(r.status)}</td>
-        <td>—</td>
-        <td class="mono muted small">${fmtDate2(r.created_at)}</td>
-        <td><button class="act-btn danger" type="button" onclick="deleteRSVP(${r.id})">DEL</button></td>
-      </tr>`;
-    }).join('');
-  }
-}
-
-// ══ HELPERS ═══════════════════════════════════════════════
-function fmtDate(s) {
-  if (!s) return '—';
-  try { return new Date(s + 'T00:00:00').toLocaleDateString('en-US', { year:'numeric', month:'short', day:'numeric' }); }
-  catch { return s; }
-}
-function fmtDate2(ts) {
-  if (!ts) return '—';
-  try { return new Date(ts * 1000).toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' }); }
-  catch { return '—'; }
-}
-function badgeHTML(s) {
-  const map = { attending:'badge-attending', declined:'badge-declined', pending:'badge-pending', upcoming:'badge-upcoming', completed:'badge-completed', waitlisted:'badge-waitlisted' };
-  return `<span class="badge ${map[s] || 'badge-pending'}">${s.toUpperCase()}</span>`;
-}
-
-// ══ ADMIN FUNCTIONS (user management + activity) ═══════════
-async function loadAdminUsers() {
-  if (!currentUser || currentUser.role !== 1) return;
-  try {
-    const res = await fetch('/api/admin/users', { credentials:'include' });
-    const data = await res.json();
-    if (data.success) renderAdminUsers(data.users);
-    else toast('Failed to load users.', 'error');
-  } catch { toast('Network error.', 'error'); }
-}
-
-function renderAdminUsers(users) {
-  const tbody = document.getElementById('admin-users-tbody');
-  document.getElementById('admin-users-count').textContent = users.length + ' USERS';
-  if (!users.length) {
-    tbody.innerHTML = '<tr><td colspan="6" class="empty-cell">No users found.</td></tr>';
-    return;
-  }
-  tbody.innerHTML = users.map(u => `
-    <tr>
-      <td class="mono muted">${u.id}</td>
-      <td><strong>${escapeHtml(u.full_name)}</strong></td>
-      <td class="muted small">${escapeHtml(u.email)}</td>
-      <td>${u.role === 1 ? '<span class="badge badge-attending">ADMIN</span>' : '<span class="badge badge-pending">USER</span>'}</td>
-      <td class="mono small">${new Date(u.created_at * 1000).toLocaleDateString()}</td>
-      <td>
-        ${u.id !== currentUser.id ? `
-          <button class="act-btn" onclick="promoteUser(${u.id}, ${u.role === 1 ? 0 : 1})">${u.role === 1 ? 'DEMOTE' : 'PROMOTE'}</button>
-          <button class="act-btn danger" onclick="deleteUser(${u.id})">DELETE</button>
-        ` : '<span class="muted">—</span>'}
-      </td>
-    </tr>
-  `).join('');
-}
-
-async function promoteUser(userId, newRole) {
-  try {
-    const res = await fetch(`/api/admin/users/${userId}/role`, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      credentials: 'include',
-      body: JSON.stringify({ role: newRole })
-    });
-    const data = await res.json();
-    if (data.success) { toast('Role updated.', 'success'); loadAdminUsers(); }
-    else toast(data.message || 'Failed.', 'error');
-  } catch { toast('Network error.', 'error'); }
-}
-
-async function deleteUser(userId) {
-  if (!confirm('Delete this user? All their events and RSVPs will be permanently removed.')) return;
-  try {
-    const res = await fetch(`/api/admin/users/${userId}`, { method: 'DELETE', credentials: 'include' });
-    const data = await res.json();
-    if (data.success) { toast('User deleted.', 'success'); loadAdminUsers(); }
-    else toast(data.message || 'Deletion failed.', 'error');
-  } catch { toast('Network error.', 'error'); }
-}
-
-// --- User Activity from backend GET /api/admin/activity ---
-async function loadUserActivity() {
-  if (!currentUser || currentUser.role !== 1) return;
-  const tbody = document.getElementById('admin-activity-tbody');
-  tbody.innerHTML = '<tr><td colspan="8" class="empty-cell">Loading activity data...</td></tr>';
-  try {
-    const res = await fetch('/api/admin/activity', { credentials:'include' });
-    const data = await res.json();
-    if (data.success && data.activity) {
-      renderUserActivity(data.activity);
-    } else {
-      tbody.innerHTML = '<tr><td colspan="8" class="empty-cell">No activity data available.</td></tr>';
-    }
-  } catch (err) {
-    console.error(err);
-    tbody.innerHTML = '<tr><td colspan="8" class="empty-cell">Failed to load activity data.</td></tr>';
-  }
-}
-
-function renderUserActivity(activity) {
-  const tbody = document.getElementById('admin-activity-tbody');
-  if (!activity.length) {
-    tbody.innerHTML = '<table><td colspan="8" class="empty-cell">No activity records found.</td></tr>';
-    return;
-  }
-  tbody.innerHTML = activity.map(a => `
-    <tr>
-      <td><strong>${escapeHtml(a.full_name)}</strong></td>
-      <td class="muted small">${escapeHtml(a.email)}</td>
-      <td class="mono gold">${a.events_created}</td>
-      <td class="mono">${a.total_rsvps}</td>
-      <td class="mono success">${a.attending_count}</td>
-      <td class="mono error">${a.declined_count}</td>
-      <td class="mono warning">${a.pending_count}</td>
-      <td class="mono gold">${a.waitlisted_count}</td>
-    </tr>
-  `).join('');
-}
-
-function refreshUserActivity() {
-  loadUserActivity();
-}
-
-function escapeHtml(str) {
-  return str.replace(/[&<>]/g, function(m){
-    if (m === '&') return '&amp;';
-    if (m === '<') return '&lt;';
-    if (m === '>') return '&gt;';
-    return m;
-  });
-}
-
-// ══ BOOT ══════════════════════════════════════════════════
-(async function boot() {
-  const params = new URLSearchParams(window.location.search);
-  const token  = params.get('token');
-
-  if (token) {
-    portalToken = token;
-    document.getElementById('auth-topbar').style.display = 'none';
-    goTo('screen-portal');
-    try {
-      const res  = await fetch(`/api/rsvp-info?token=${encodeURIComponent(token)}`);
-      const data = await res.json();
-      if (data.success) {
-        const ev = data.event;
-        document.getElementById('portal-event-name').textContent = ev.name;
-        document.getElementById('portal-event-date').textContent = new Date(ev.date + 'T00:00:00')
-          .toLocaleDateString('en-US', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
-        document.getElementById('portal-event-location').textContent = ev.location || 'TBA';
-        if (!ev.location) document.getElementById('portal-location-box').style.opacity = '0.4';
-        if (ev.description) {
-          const desc = document.getElementById('portal-event-desc');
-          desc.textContent = ev.description;
-          desc.style.display = 'block';
-        }
-        if (ev.capacity > 0) {
-          document.getElementById('portal-event-capacity').textContent = ev.capacity + ' seats';
-          document.getElementById('portal-capacity-row').style.display = 'flex';
-        }
-        document.getElementById('portal-guest-name').textContent = data.guest_name;
-        document.getElementById('portal-loading').style.display    = 'none';
-        document.getElementById('portal-invitation').style.display = 'block';
-        if (data.status !== 'pending') {
-          const alertEl = document.getElementById('portal-alert');
-          alertEl.textContent = data.waitlisted
-            ? 'You are currently on the waitlist.'
-            : `Your current RSVP: ${data.status.toUpperCase()}. You can update it below.`;
-          alertEl.className = data.waitlisted ? 'alert alert-info show' : 'alert alert-success show';
-        }
-      } else {
-        document.getElementById('portal-loading').style.display = 'none';
-        document.getElementById('portal-error-msg').textContent = data.message || 'Invalid RSVP link.';
-        document.getElementById('portal-error').style.display   = 'block';
-      }
-    } catch {
-      document.getElementById('portal-loading').style.display = 'none';
-      document.getElementById('portal-error-msg').textContent = 'Network error. Please try again.';
-      document.getElementById('portal-error').style.display   = 'block';
-    }
-    return;
-  }
-
-  try {
-    const res  = await fetch('/api/auth/me', { credentials:'include' });
-    const data = await res.json();
-    if (data.success) enterDashboard(data.user);
-  } catch {}
-})();
-
-document.getElementById('li-email').addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('li-pass').focus(); });
-document.getElementById('li-pass').addEventListener('keydown',  e => { if (e.key === 'Enter') doLogin(); });
-document.getElementById('su-pass2').addEventListener('keydown', e => { if (e.key === 'Enter') doRegister(); });
-</script>
 </body>
 </html>
