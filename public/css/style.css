@@ -274,10 +274,10 @@ body::after {
 .attempt-dot {
   width: 8px; height: 8px;
   border-radius: 50%;
-  background: var(--error);
+  background: rgba(255,255,255,.12);
   transition: background .3s;
 }
-.attempt-dot.used { background: rgba(255,255,255,.12); }
+.attempt-dot.used { background: var(--error); }
 
 /* ── BUTTONS ──────────────────────────────────────── */
 .btn-submit {
@@ -1161,3 +1161,33 @@ tbody tr:hover { background: rgba(245,197,24,.04); }
   .content-area { padding: 16px; }
   .stats-grid { grid-template-columns: 1fr 1fr; }
 }
+
+/* ── Admin additions ── */
+.admin-overview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin-bottom: 28px; }
+.session-online { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; color: var(--success); font-family: 'Share Tech Mono', monospace; }
+.session-online::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--success); display:inline-block; }
+.mini-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.mini-bar-label { font-size: 12px; color: var(--white-muted); width: 100px; flex-shrink: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mini-bar-track { flex: 1; height: 8px; background: rgba(255,255,255,.06); border-radius: 4px; overflow: hidden; }
+.mini-bar-fill  { height: 100%; border-radius: 4px; background: linear-gradient(to right, var(--yellow-dim), var(--yellow)); transition: width .6s ease; }
+.mini-bar-val   { font-family: 'Share Tech Mono', monospace; font-size: 11px; color: var(--yellow); width: 28px; text-align: right; flex-shrink: 0; }
+.audit-create { color: var(--success); }
+.audit-delete { color: var(--error); }
+.audit-login  { color: var(--info); }
+.audit-role   { color: var(--yellow); }
+.audit-logout { color: var(--white-muted); }
+.badge-queued { background: rgba(74,158,255,.1); color: var(--info);    border: 1px solid rgba(74,158,255,.25); }
+.badge-sent   { background: rgba(46,204,113,.1); color: var(--success); border: 1px solid rgba(46,204,113,.25); }
+.badge-failed { background: rgba(224,91,91,.1);  color: var(--error);   border: 1px solid rgba(224,91,91,.25); }
+.badge-admin  { background: rgba(245,197,24,.2); color: var(--yellow-light); border: 1px solid rgba(245,197,24,.4); }
+/* ── COMPAT ALIASES (bug fixes) ───────────────────── */
+/* JS uses .act-btn-danger but CSS had .act-btn.danger */
+.act-btn-danger { color: #f87171 !important; border-color: rgba(239,68,68,0.35) !important; }
+.act-btn-danger:hover { background: rgba(239,68,68,0.1) !important; border-color: var(--error) !important; }
+
+/* Toast show state */
+.toast { display: none; }
+.toast.show { display: block; }
+
+/* Nav badge — hidden by default, shown by JS */
+#nb-rsvps { display: none; }
