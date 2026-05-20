@@ -140,8 +140,6 @@ function showSection(name) {
   }
   document.getElementById('topnav-email-btn').style.display = meta.email ? '' : 'none';
 
-  var searchEl = document.getElementById('global-search');
-  if (searchEl) searchEl.value = '';
 
   if      (name === 'overview')       renderOverview();
   else if (name === 'events')         renderEvents();
@@ -158,9 +156,9 @@ function showSection(name) {
 // ── Stats ────────────────────────────────────────
 function refreshStats() {
   var attending  = allRSVPs.filter(function(r) { return r.status === 'attending' && !r.waitlisted; }).length;
-  var declined   = allRSVPs.filter(function(r) { return r.status === 'declined'; }).length;
-  var pending    = allRSVPs.filter(function(r) { return r.status === 'pending'; }).length;
-  var waitlisted = allRSVPs.filter(function(r) { return r.waitlisted == 1; }).length;
+  var declined   = allRSVPs.filter(function(r) { return r.status === 'declined'  && !r.waitlisted; }).length;
+  var waitlisted = allRSVPs.filter(function(r) { return r.waitlisted == 1 || r.waitlisted === true; }).length;
+  var pending    = allRSVPs.filter(function(r) { return r.status === 'pending'   && !r.waitlisted; }).length;
   var total      = allRSVPs.length;
   var rate       = total > 0 ? Math.round(((attending + declined) / total) * 100) : 0;
 

@@ -212,30 +212,6 @@ function updateNavBadges() {
   }
 }
 
-// ── Global search handler ────────────────────────
-function handleSearch(val) {
-  var v = (val || '').trim().toLowerCase();
-  if (currentSection === 'events') {
-    if (!v) { renderEvents(); return; }
-    var filtered = allEvents.filter(function(ev) {
-      return ev.name.toLowerCase().includes(v) ||
-             (ev.location || '').toLowerCase().includes(v) ||
-             (ev.description || '').toLowerCase().includes(v);
-    });
-    renderEventGrid(filtered);
-  } else if (currentSection === 'rsvps') {
-    if (!v) { renderRSVPs(); return; }
-    var filteredR = allRSVPs.filter(function(r) {
-      return (r.guest_name || '').toLowerCase().includes(v) ||
-             (r.email || '').toLowerCase().includes(v) ||
-             (r.event_name || '').toLowerCase().includes(v);
-    });
-    renderRSVPTable(filteredR);
-  } else if (currentSection === 'guests') {
-    renderGuests(v);
-  }
-}
-
 // ── Toggle password eye ──────────────────────────
 function toggleEye(inputId, btn) {
   var input = document.getElementById(inputId);

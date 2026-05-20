@@ -757,9 +757,6 @@
 
       <!-- ── ADMIN: OVERVIEW ── -->
       <div class="section-page" id="page-admin-overview">
-        <div style="display:flex;justify-content:flex-end;margin-bottom:12px">
-          <button class="act-btn" type="button" onclick="adminRefreshAll()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="12" height="12"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg> REFRESH DATA</button>
-        </div>
         <div class="admin-overview-grid">
           <div class="stat-card"><div class="stat-card-glow gold"></div><div class="stat-card-icon gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div class="stat-card-value" id="adm-stat-organizers">0</div><div class="stat-card-label">ORGANIZERS</div></div>
           <div class="stat-card"><div class="stat-card-glow green"></div><div class="stat-card-icon green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div class="stat-card-value" id="adm-stat-sessions">0</div><div class="stat-card-label">ACTIVE SESSIONS</div></div>
@@ -797,7 +794,6 @@
             <span class="data-table-toolbar-title">LOGGED IN USERS</span>
             <span class="data-table-toolbar-count" id="sessions-count-label"></span>
             <div class="toolbar-spacer"></div>
-            <button class="act-btn" type="button" onclick="adminRefreshAll()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="12" height="12"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg> REFRESH</button>
           </div>
           <div class="table-scroll">
             <table><thead><tr><th>#</th><th>FULL NAME</th><th>EMAIL</th><th>ROLE</th><th>LOGGED IN AT</th></tr></thead><tbody id="admin-sessions-tbody"></tbody></table>

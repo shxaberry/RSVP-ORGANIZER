@@ -30,11 +30,11 @@ async function addRSVP() {
   // Find event name for audit
   var evObj = allEvents.find(function(e) { return e.id == eventId; });
   var evName = evObj ? evObj.name : 'event #' + eventId;
-  appendAudit('CREATE_RSVP', guestName + ' (' + email + ') added as ' + status + ' for "' + evName + '"' + (d.waitlisted ? ' [WAITLISTED]' : ''));
+  appendAudit('CREATE_RSVP', guestName + ' (' + email + ') added as ' + status + ' for "' + evName + '"' + ((d.waitlisted == 1 || d.waitlisted === true) ? ' [WAITLISTED]' : ''));
 
   closeModal('modal-add-rsvp');
 
-  var msg = d.waitlisted == 1
+  var msg = (d.waitlisted == 1 || d.waitlisted === true)
     ? 'RSVP added \u2014 guest is waitlisted (event full).'
     : 'RSVP added for ' + guestName + '.';
   toast(msg);
@@ -54,7 +54,9 @@ async function updateRSVPStatus(id, newStatus) {
   appendAudit('UPDATE_RSVP', 'RSVP #' + id + ' status changed to ' + newStatus);
   toast('RSVP updated to ' + newStatus + '.');
   await loadAll();
-  renderRSVPs();
+  if      (currentSection === 'rsvps')   renderRSVPs();
+  else if (currentSection === 'guests')  renderGuests();
+  else                                   renderOverview();
 }
 
 async function deleteRSVP(id, guestName) {
@@ -66,8 +68,11 @@ function filterRSVPs(status) {
   var filtered = status === 'all'
     ? allRSVPs
     : allRSVPs.filter(function(r) {
-        if (status === 'waitlisted') return r.waitlisted == 1;
-        return r.status === status && !r.waitlisted;
+        if (status === 'waitlisted') return r.waitlisted == 1 || r.waitlisted === true;
+        if (status === 'attending')  return r.status === 'attending' && !r.waitlisted;
+        if (status === 'declined')   return r.status === 'declined'  && !r.waitlisted;
+        if (status === 'pending')    return r.status === 'pending'   && !r.waitlisted;
+        return r.status === status;
       });
   renderRSVPTable(filtered);
 }
@@ -98,7 +103,7 @@ function renderRSVPTable(rsvps) {
         '<td>' + esc(r.guest_name || '—') + '</td>',
         '<td class="muted">' + esc(r.email || '—') + '</td>',
         '<td>' + esc(r.event_name || '—') + '</td>',
-        '<td>' + statusBadge(r.status, r.waitlisted) + '</td>',
+        '<td>' + statusBadge(r.status, r.waitlisted == 1 || r.waitlisted === true) + '</td>',
        // Replace the PORTAL LINK <td> block in renderRSVPTable with this:
         '<td>',
           r.token

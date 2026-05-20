@@ -161,28 +161,6 @@ async function loadAdminSessions() {
   }).join('');
 }
 
-// ── FIX: Admin Refresh button (overview + sessions) ──
-// Called by the REFRESH button on the admin sessions page and overview.
-async function adminRefreshAll() {
-  if (!currentUser || currentUser.role !== 1) return;
-  toast('Refreshing data\u2026');
-  var [dE, dR] = await Promise.all([
-    api('GET', '/api/events'),
-    api('GET', '/api/rsvps')
-  ]);
-  if (dE.success) allEvents = dE.events || [];
-  if (dR.success) allRSVPs  = dR.rsvps  || [];
-
-  appendAudit('MANUAL_REFRESH', 'Admin manually refreshed dashboard data');
-
-  // Re-render the current section
-  if (currentSection === 'admin-overview')  loadAdminOverview();
-  if (currentSection === 'admin-sessions')  loadAdminSessions();
-  if (currentSection === 'admin-activity')  loadUserActivity();
-  if (currentSection === 'admin-users')   { loadAdminUsers(); loadUserActivity(); }
-
-  toast('Dashboard refreshed.');
-}
 
 // ── User Activity ─────────────────────────────────
 async function loadUserActivity() {

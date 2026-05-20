@@ -63,7 +63,7 @@ async function portalSubmit() {
   if (submitBtn) submitBtn.style.display = 'none';
   if (alertEl)   alertEl.className = 'alert';
 
-  var msg = d.waitlisted
+  var msg = (d.waitlisted == 1 || d.waitlisted === true)
     ? "The event is full — you've been added to the waitlist."
     : 'Your RSVP has been confirmed as: ' + _portalSelection.toUpperCase() + '.';
 
@@ -141,7 +141,7 @@ async function initPortal() {
   
   var alertEl = document.getElementById('portal-alert');
   if (d.status && d.status !== 'pending') {
-    var msg = d.waitlisted == 1
+    var msg = (d.waitlisted == 1 || d.waitlisted === true)
       ? 'You are on the waitlist for this event.'
       : 'You have already responded: ' + d.status.toUpperCase() + '.';
     if (alertEl) {
