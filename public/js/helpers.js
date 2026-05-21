@@ -311,7 +311,10 @@ async function doRegister() {
 
 // ── Logout ───────────────────────────────────────
 async function doLogout() {
-  appendAudit('LOGOUT', (currentUser ? currentUser.full_name : 'User') + ' logged out');
+  // Capture identity before clearing state
+  var _logoutName = currentUser ? currentUser.full_name : 'User';
+  var _logoutRole = currentUser ? (currentUser.role === 1 ? 'ADMIN' : 'ORGANIZER') : '—';
+  appendAudit('LOGOUT', _logoutName + ' logged out at ' + new Date().toLocaleString(), _logoutName, _logoutRole);
 
   // Stop real-time polling
   stopAdminPolling();
@@ -320,7 +323,6 @@ async function doLogout() {
   currentUser    = null;
   allEvents      = [];
   allRSVPs       = [];
-  auditLog       = [];
   currentSection = 'overview';
 
   document.getElementById('app-layout').classList.remove('active');

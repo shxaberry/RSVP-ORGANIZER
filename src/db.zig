@@ -612,7 +612,7 @@ pub fn load_sessions(
 ) void {
     var stmt: ?*c.sqlite3_stmt = null;
     if (c.sqlite3_prepare_v2(db,
-        "SELECT token, user_id FROM sessions;",
+        "SELECT token, user_id FROM sessions WHERE logged_out_at IS NULL;",
         -1, &stmt, null) != c.SQLITE_OK) return;
     defer _ = c.sqlite3_finalize(stmt);
 
@@ -638,10 +638,14 @@ pub fn delete_sessions_for_user(user_id: u32) void {
     _ = c.sqlite3_step(stmt);
 }
 
-/// Return all active sessions joined with user info as a JSON array.
+/// Return all sessions (active + logged-out) joined with user info as a JSON array.
+/// Each row includes logged_out_at when present (null column → omitted from JSON).
 pub fn get_active_sessions(_: std.mem.Allocator, out: *std.ArrayList(u8)) void {
     var stmt: ?*c.sqlite3_stmt = null;
-    const sql = "SELECT u.id, u.full_name, u.email, u.role, s.created_at FROM sessions s JOIN users u ON s.user_id = u.id ORDER BY s.created_at DESC;";
+    const sql =
+        "SELECT u.id, u.full_name, u.email, u.role, s.created_at, s.logged_out_at " ++
+        "FROM sessions s JOIN users u ON s.user_id = u.id " ++
+        "ORDER BY s.created_at DESC;";
     if (c.sqlite3_prepare_v2(db, sql, -1, &stmt, null) != c.SQLITE_OK) {
         out.appendSlice("[]") catch {};
         return;
@@ -653,11 +657,28 @@ pub fn get_active_sessions(_: std.mem.Allocator, out: *std.ArrayList(u8)) void {
     while (c.sqlite3_step(stmt) == c.SQLITE_ROW) {
         if (!first) out.appendSlice(",") catch return;
         first = false;
-        std.fmt.format(out.writer(), 
-            "{{\"id\":{d},\"full_name\":\"{s}\",\"email\":\"{s}\",\"role\":{d},\"logged_in_at\":{d}}}",
-            .{ c.sqlite3_column_int(stmt, 0), std.mem.span(c.sqlite3_column_text(stmt, 1)), 
-               std.mem.span(c.sqlite3_column_text(stmt, 2)), c.sqlite3_column_int(stmt, 3), 
-               c.sqlite3_column_int64(stmt, 4) }) catch return;
+
+        const id          = c.sqlite3_column_int(stmt, 0);
+        const full_name   = std.mem.span(c.sqlite3_column_text(stmt, 1));
+        const email       = std.mem.span(c.sqlite3_column_text(stmt, 2));
+        const role        = c.sqlite3_column_int(stmt, 3);
+        const logged_in   = c.sqlite3_column_int64(stmt, 4);
+        // Column 5 is NULL for active sessions; non-zero means logged out.
+        const col_type    = c.sqlite3_column_type(stmt, 5);
+        const logged_out  = if (col_type == c.SQLITE_NULL) @as(i64, 0)
+                            else c.sqlite3_column_int64(stmt, 5);
+
+        if (logged_out != 0) {
+            std.fmt.format(out.writer(),
+                "{{\"id\":{d},\"full_name\":\"{s}\",\"email\":\"{s}\"," ++
+                "\"role\":{d},\"logged_in_at\":{d},\"logged_out_at\":{d}}}",
+                .{ id, full_name, email, role, logged_in, logged_out }) catch return;
+        } else {
+            std.fmt.format(out.writer(),
+                "{{\"id\":{d},\"full_name\":\"{s}\",\"email\":\"{s}\"," ++
+                "\"role\":{d},\"logged_in_at\":{d}}}",
+                .{ id, full_name, email, role, logged_in }) catch return;
+        }
     }
     out.appendSlice("]") catch return;
 }

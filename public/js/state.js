@@ -9,18 +9,27 @@ var allRSVPs       = [];
 var pendingDeleteId   = null;
 var pendingDeleteType = null;
 
-// ── Audit log (client-side, session-scoped) ───────
-var auditLog = [];
+// ── Audit log (persistent via localStorage — survives logout) ──
+var AUDIT_KEY = 'rsvp_audit_log';
+var auditLog  = (function() {
+  try { return JSON.parse(localStorage.getItem(AUDIT_KEY)) || []; } catch(e) { return []; }
+})();
 
-function appendAudit(action, detail) {
+function _saveAudit() {
+  try { localStorage.setItem(AUDIT_KEY, JSON.stringify(auditLog)); } catch(e) {}
+}
+
+// overrideUser / overrideRole let logout capture the user before currentUser is cleared
+function appendAudit(action, detail, overrideUser, overrideRole) {
   auditLog.unshift({
     ts:     Date.now(),
     action: action,
-    user:   currentUser ? currentUser.full_name : 'Unknown',
-    role:   currentUser ? (currentUser.role === 1 ? 'ADMIN' : 'ORGANIZER') : '—',
+    user:   overrideUser || (currentUser ? currentUser.full_name : 'System'),
+    role:   overrideRole || (currentUser ? (currentUser.role === 1 ? 'ADMIN' : 'ORGANIZER') : '—'),
     detail: detail || ''
   });
-  if (auditLog.length > 200) auditLog.length = 200;
+  if (auditLog.length > 500) auditLog.length = 500;
+  _saveAudit();
   if (currentSection === 'admin-audit') renderAuditLog();
   var nb = document.getElementById('nb-audit');
   if (nb) {
@@ -82,7 +91,6 @@ function startAdminPolling() {
       if (currentSection === 'admin-activity')  loadUserActivity();
       if (currentSection === 'admin-sessions')  loadAdminSessions();
       if (currentSection === 'admin-users')   { loadAdminUsers(); loadUserActivity(); }
-      // always keep overview numbers updated in background
       if (currentSection !== 'admin-overview') loadAdminOverview();
     }
   }, 10000);

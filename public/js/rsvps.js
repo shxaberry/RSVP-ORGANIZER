@@ -65,14 +65,15 @@ async function deleteRSVP(id, guestName) {
 
 // ── Filter ───────────────────────────────────────
 function filterRSVPs(status) {
+  function isWL(r) { return r.waitlisted == 1 || r.waitlisted === true; }
   var filtered = status === 'all'
     ? allRSVPs
     : allRSVPs.filter(function(r) {
-        if (status === 'waitlisted') return r.waitlisted == 1 || r.waitlisted === true;
-        if (status === 'attending')  return r.status === 'attending' && !r.waitlisted;
-        if (status === 'declined')   return r.status === 'declined'  && !r.waitlisted;
-        if (status === 'pending')    return r.status === 'pending'   && !r.waitlisted;
-        return r.status === status;
+        if (status === 'waitlisted') return isWL(r);
+        if (status === 'attending')  return r.status === 'attending' && !isWL(r);
+        if (status === 'declined')   return r.status === 'declined'  && !isWL(r);
+        if (status === 'pending')    return r.status === 'pending'   && !isWL(r);
+        return r.status === status && !isWL(r);
       });
   renderRSVPTable(filtered);
 }

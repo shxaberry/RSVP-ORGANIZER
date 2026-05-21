@@ -767,22 +767,9 @@
           <div class="stat-card"><div class="stat-card-glow blue"></div><div class="stat-card-icon blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="stat-card-value" id="adm-stat-pending">0</div><div class="stat-card-label">PENDING</div></div>
           <div class="stat-card"><div class="stat-card-glow orange"></div><div class="stat-card-icon orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/></svg></div><div class="stat-card-value" id="adm-stat-waitlisted">0</div><div class="stat-card-label">WAITLISTED</div></div>
         </div>
-        <div class="two-col">
-          <div>
-            <div class="section-header"><h2>TOP ORGANIZERS</h2><div class="section-header-line"></div><span class="section-tag">BY EVENTS</span></div>
-            <div class="info-card"><div id="adm-top-organizers"></div></div>
-          </div>
-          <div>
-            <div class="section-header"><h2>GUEST STATUS BREAKDOWN</h2><div class="section-header-line"></div></div>
-            <div class="info-card">
-              <div class="rate-header"><span class="rate-label">SYSTEM-WIDE RESPONSE RATE</span><span class="rate-pct" id="adm-rate-pct">0%</span></div>
-              <div class="progress-bar" style="margin-bottom:16px"><div class="progress-fill" id="adm-rate-bar" style="width:0%"></div></div>
-              <div class="detail-row"><span class="detail-row-label">ATTENDING</span><span class="detail-row-value success" id="adm-breakdown-attending">0</span></div>
-              <div class="detail-row"><span class="detail-row-label">DECLINED</span><span class="detail-row-value error" id="adm-breakdown-declined">0</span></div>
-              <div class="detail-row"><span class="detail-row-label">PENDING</span><span class="detail-row-value warning" id="adm-breakdown-pending">0</span></div>
-              <div class="detail-row"><span class="detail-row-label">WAITLISTED</span><span class="detail-row-value gold" id="adm-breakdown-waitlisted">0</span></div>
-            </div>
-          </div>
+        <div>
+          <div class="section-header"><h2>TOP ORGANIZERS</h2><div class="section-header-line"></div><span class="section-tag">BY EVENTS CREATED</span></div>
+          <div class="info-card" style="max-width:100%"><div id="adm-top-organizers"></div></div>
         </div>
       </div>
 
@@ -796,7 +783,7 @@
             <div class="toolbar-spacer"></div>
           </div>
           <div class="table-scroll">
-            <table><thead><tr><th>#</th><th>FULL NAME</th><th>EMAIL</th><th>ROLE</th><th>LOGGED IN AT</th></tr></thead><tbody id="admin-sessions-tbody"></tbody></table>
+            <table><thead><tr><th>#</th><th>FULL NAME</th><th>EMAIL</th><th>ROLE</th><th>LOGGED IN AT</th><th>LOGGED OUT AT</th></tr></thead><tbody id="admin-sessions-tbody"></tbody></table>
           </div>
         </div>
       </div>

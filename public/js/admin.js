@@ -16,11 +16,16 @@ async function loadAdminOverview() {
   // Count non-admin users (role === 0 = organizer)
   var organizers = users.filter(function(u) { return u.role === 0; }).length;
 
+  // Exclude the permanent admin (role===1) from organizer/guest stats
+  var nonAdminActivity = activity.filter(function(a) { return !a.is_admin && a.role !== 1; });
+
   var totalEvents = 0, totalGuests = 0;
   var totalAtt = 0, totalDec = 0, totalPend = 0, totalWait = 0;
-  activity.forEach(function(a) {
+  nonAdminActivity.forEach(function(a) {
     totalEvents += (a.events_created   || 0);
     totalGuests += (a.total_rsvps      || 0);
+    // attending/declined/pending already exclude waitlisted from the server;
+    // if server doesn't guarantee this, we use the counts as provided.
     totalAtt    += (a.attending_count  || 0);
     totalDec    += (a.declined_count   || 0);
     totalPend   += (a.pending_count    || 0);
@@ -86,14 +91,12 @@ async function loadAdminUsers() {
     var isSelf  = currentUser && u.id === currentUser.id;
     var isAdmin = u.role === 1;
     var promoteLabel = isAdmin ? '↓ DEMOTE' : '↑ PROMOTE';
+    // Permanent admin (self) cannot be edited; others get promote/demote only (no delete)
     var actions = isSelf
-  ? '<span class="muted" style="font-size:0.75rem">Cannot edit self</span>'
-  : '<button class="act-btn admin-role-btn" data-id="' + u.id + '" data-role="' + u.role + '" data-name="' + esc(u.full_name) + '">' +
-      promoteLabel +
-    '</button> ' +
-    '<button class="act-btn act-btn-danger admin-delete-btn" data-id="' + u.id + '" data-name="' + esc(u.full_name) + '">' +
-      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>' +
-    '</button>';
+      ? '<span class="muted" style="font-size:0.75rem">Cannot edit self</span>'
+      : '<button class="act-btn admin-role-btn" data-id="' + u.id + '" data-role="' + u.role + '" data-name="' + esc(u.full_name) + '">' +
+          promoteLabel +
+        '</button>';
 
     return '<tr>' +
       '<td class="mono">' + u.id + '</td>' +
@@ -156,7 +159,7 @@ async function loadAdminSessions() {
         ? '<span class="badge badge-attending">ADMIN</span>'
         : '<span class="badge badge-pending">ORGANIZER</span>') + '</td>' +
       '<td class="muted mono">' + (s.logged_in_at ? new Date(s.logged_in_at * 1000).toLocaleString() : '—') + '</td>' +
-
+      '<td class="muted mono">' + (s.logged_out_at ? new Date(s.logged_out_at * 1000).toLocaleString() : '<span style="color:rgba(74,222,128,0.7);font-size:0.75rem">● ACTIVE</span>') + '</td>' +
       '</tr>';
   }).join('');
 }
@@ -278,11 +281,5 @@ document.addEventListener('click', function(e) {
     return;
   }
 
-  var delBtn = e.target.closest('.admin-delete-btn');
-  if (delBtn) {
-    var id   = parseInt(delBtn.dataset.id);
-    var name = delBtn.dataset.name;
-    confirmDeleteItem(id, 'user', '"' + name + '"');
-    return;
-  }
+  // Delete button removed from user management — users are permanent records
 });
